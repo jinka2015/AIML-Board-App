@@ -12,12 +12,11 @@ How to train the model
 Installation of MobilenetSSD and Caffe 
 
 1. Clean the caffe source code from the below git repositry using below commands.
-
->$ git clone https://github.com/weiliu89/caffe.git
-
->$ cd caffe
-
->$ git checkout ssd
+```
+ $ git clone https://github.com/weiliu89/caffe.git
+ $ cd caffe
+ $ git checkout ssd
+```
 
 2. Depending on the Processor used eithe CPU or GPU install the depending packages by executing repective instrctions frm http://caffe.berkeleyvision.org/install_apt.html
 
@@ -34,7 +33,6 @@ Installation of MobilenetSSD and Caffe
           2. Make sure you add the $CAFFE_ROOT/python to your PYTHON PATH once done with the make pycaffe command
 ```
 
-
 Getting the data ready
 
 1. Download the VOC2007 and VOC2012 dataset.
@@ -48,15 +46,6 @@ Getting the data ready
  $ tar -xvf VOCtrainval_06-Nov-2007.tar
  $ tar -xvf VOCtest_06-Nov-2007.tar
 ```
-3. Creating the Lightning Memory-Mapped Database
-(LMDB) file
-```
- $ cd $CAFFE_ROOT
- $ ./data/VOC0712/create_list.sh
- $ ./data/VOC0712/create_data.sh
-```
-
-
 
 Training the model with VOC
 
@@ -67,13 +56,20 @@ Now clone the MobileNetSSD implementation by chuanqi305 from github
  $ cd MobileNet-SSD
 
 ```
+1. Creating the Lightning Memory-Mapped Database
+(LMDB) file
+```
+ $ cd $MOBILENETSSD_DIR
+ $ ./data/VOC0712/create_list.sh
+ $ ./data/VOC0712/create_data.sh
+```
 
-1. Creating the symbolic link to training and test data sets,
+2. Creating the symbolic link to training and test data sets,
 ```
  $ ln -s $CAFFE_DIR/PATH_TO_YOUR_TRAIN_LMDB trainval_lmdb
  $ ln -s $CAFFE_DIR/PATH_TO_YOUR_TEST_LMDB test_lmdb
 ```
-2. Copy a labelmap_voc.prototxt file from ssd repo tree to MobileNetSSD Dir using below command,
+3. Copy a labelmap_voc.prototxt file from ssd repo tree to MobileNetSSD Dir using below command,
 ```
  $ cp $CAFFE_DIR/data/VOC0712/labelmap_voc.prototxt $MOBILENETSSD_DIR/labelmap.prototxt
 ```
