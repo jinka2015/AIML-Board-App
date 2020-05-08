@@ -22,7 +22,7 @@ Installation of MobilenetSSD and Caffe
 2. Depending on the Processor used eithe CPU or GPU install the depending packages by executing repective instrctions frm http://caffe.berkeleyvision.org/install_apt.html
 
 3. Build caffe using the below instructions
-
+```
  $ cp Makefile.config.example Makefile.config
 Please disable the option USE_OPENCV. USE_OPENCV := 0
 ( Make necessary modification  in the Makefile as per the device configuration)
@@ -31,7 +31,7 @@ Please disable the option USE_OPENCV. USE_OPENCV := 0
  $ make runtest
  $ make pycaffe
  ( Make sure you add the $CAFFE_ROOT/python to your PYTHON PATH once done with the make pycaffe command)
-
+```
 
 
 Getting the data ready
